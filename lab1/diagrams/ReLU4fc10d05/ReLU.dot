@@ -1,0 +1,83 @@
+digraph ReLU {
+stylesheet = "styles.css"
+rankdir="LR" 
+
+subgraph cluster_ReLU {
+  label="ReLU"
+  URL=""
+  bgcolor="#FFF8DC"
+  cluster_ReLU_clock [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="clock" rank="0"]
+     
+cluster_ReLU_reset [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="reset" rank="0"]
+     
+cluster_ReLU_io_x [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_x" rank="0"]
+     
+cluster_ReLU_io_y [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_y" rank="1000"]
+     
+cluster_ReLU__T [label = "_T" shape="rectangle"]; 
+
+op_gt_18 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > gt </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">2</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1296417078 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">2</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_616895721 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_lt_19 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > lt </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+  cluster_ReLU__T -> mux_1296417078:select
+  cluster_ReLU_io_x -> op_gt_18:in1
+  mux_616895721:out -> mux_1296417078:in2
+  cluster_ReLU_io_x -> op_lt_19:in1
+  mux_1296417078:out -> cluster_ReLU_io_y
+  cluster_ReLU_io_x -> mux_616895721:in2
+  op_gt_18:out -> cluster_ReLU__T
+  op_lt_19:out -> mux_616895721:select
+  
+  
+}
+     
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "class":"firrtl.CustomDefaultRegisterEmission",
+    "useInitAsPreset":false,
+    "disableRandomization":true
+  },
+  {
+    "class":"firrtl.CustomDefaultMemoryEmission",
+    "initValue":{
+      
+    }
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.VerilogEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"."
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~AndGate|AndGate>io_c",
+    "sources":[
+      "~AndGate|AndGate>io_a",
+      "~AndGate|AndGate>io_b"
+    ]
+  }
+]

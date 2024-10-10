@@ -1,0 +1,37 @@
+digraph LastConnect {
+stylesheet = "styles.css"
+rankdir="LR" 
+
+subgraph cluster_LastConnect {
+  label="LastConnect"
+  URL=""
+  bgcolor="#FFF8DC"
+  cluster_LastConnect_clock [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="clock" rank="0"]
+     
+cluster_LastConnect_reset [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="reset" rank="0"]
+     
+cluster_LastConnect_io_update [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_update" rank="0"]
+     
+cluster_LastConnect_io_out [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_out" rank="1000"]
+     
+
+mux_1143619946 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">10</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">5</TD>
+  </TR>
+</TABLE>>];
+       
+
+  cluster_LastConnect_io_update -> mux_1143619946:select
+  mux_1143619946:out -> cluster_LastConnect_io_out
+  
+  
+}
+     
+}

@@ -1,0 +1,15 @@
+digraph Accumulator_hierarchy { rankdir="TB" 
+ node [shape="rectangle"]; 
+rankdir="LR" 
+stylesheet = "styles.css"
+module_1 [shape= "plaintext" href="Accumulator.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > Accumulator </TD>
+  </TR>
+        
+</TABLE>>];
+
+      }

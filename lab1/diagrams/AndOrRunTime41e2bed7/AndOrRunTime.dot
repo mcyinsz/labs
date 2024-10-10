@@ -1,0 +1,123 @@
+digraph AndOrRunTime {
+stylesheet = "styles.css"
+rankdir="LR" 
+
+subgraph cluster_AndOrRunTime {
+  label="AndOrRunTime"
+  URL=""
+  bgcolor="#FFF8DC"
+  cluster_AndOrRunTime_clock [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="clock" rank="0"]
+     
+cluster_AndOrRunTime_reset [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="reset" rank="0"]
+     
+cluster_AndOrRunTime_io_a [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_a" rank="0"]
+     
+cluster_AndOrRunTime_io_b [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_b" rank="0"]
+     
+cluster_AndOrRunTime_io_useAnd [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_useAnd" rank="0"]
+     
+cluster_AndOrRunTime_io_out [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_out" rank="1000"]
+     
+cluster_AndOrRunTime__io_out_T [label = "_io_out_T" shape="rectangle"]; 
+
+op_and_6 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > and </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+cluster_AndOrRunTime__io_out_T_1 [label = "_io_out_T_1" shape="rectangle"]; 
+
+op_and_7 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > and </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+cluster_AndOrRunTime__io_out_T_2 [label = "_io_out_T_2" shape="rectangle"]; 
+
+op_or_8 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > or </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+cluster_AndOrRunTime__io_out_T_3 [label = "_io_out_T_3" shape="rectangle"]; 
+
+op_not_9 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD > not </TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+cluster_AndOrRunTime__io_out_T_4 [label = "_io_out_T_4" shape="rectangle"]; 
+
+op_and_10 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > and </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_or_11 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > or </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+  cluster_AndOrRunTime_io_b -> op_and_6:in2
+  cluster_AndOrRunTime_io_a -> op_and_6:in1
+  cluster_AndOrRunTime_io_a -> op_or_8:in1
+  cluster_AndOrRunTime_io_b -> op_or_8:in2
+  op_and_6:out -> cluster_AndOrRunTime__io_out_T
+  op_and_7:out -> cluster_AndOrRunTime__io_out_T_1
+  cluster_AndOrRunTime_io_useAnd -> op_not_9:in1
+  op_not_9:out -> cluster_AndOrRunTime__io_out_T_3
+  cluster_AndOrRunTime__io_out_T -> op_and_7:in1
+  op_or_8:out -> cluster_AndOrRunTime__io_out_T_2
+  cluster_AndOrRunTime__io_out_T_4 -> op_or_11:in2
+  cluster_AndOrRunTime__io_out_T_2 -> op_and_10:in1
+  cluster_AndOrRunTime__io_out_T_1 -> op_or_11:in1
+  op_and_10:out -> cluster_AndOrRunTime__io_out_T_4
+  op_or_11:out -> cluster_AndOrRunTime_io_out
+  cluster_AndOrRunTime_io_useAnd -> op_and_7:in2
+  cluster_AndOrRunTime__io_out_T_3 -> op_and_10:in2
+  
+  
+}
+     
+}

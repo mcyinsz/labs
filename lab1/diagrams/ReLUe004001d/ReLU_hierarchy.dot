@@ -1,0 +1,15 @@
+digraph ReLU_hierarchy { rankdir="TB" 
+ node [shape="rectangle"]; 
+rankdir="LR" 
+stylesheet = "styles.css"
+module_8 [shape= "plaintext" href="ReLU.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > ReLU </TD>
+  </TR>
+        
+</TABLE>>];
+
+      }

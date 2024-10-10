@@ -1,0 +1,15 @@
+digraph LastConnect_hierarchy { rankdir="TB" 
+ node [shape="rectangle"]; 
+rankdir="LR" 
+stylesheet = "styles.css"
+module_5 [shape= "plaintext" href="LastConnect.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > LastConnect </TD>
+  </TR>
+        
+</TABLE>>];
+
+      }
